@@ -14,3 +14,44 @@
       </div>
     </div>
   </header>
+
+  <!-- Services Section -->
+  <section class="page-section" id="services">
+    <div class="container">
+      <h2 class="text-center mt-0"><a href="<%=new_event_path%>">Créer un event</a></h2><br>
+      <hr class="divider my-4"><br>
+      <h2 class='text-center mt-0'> Event du jour </h2><br>
+      <hr class="divider my-4"><br>
+      <div class="container d-flex flex-wrap justify-content-around">
+        <% @events.each_with_index do |event,index| %>
+            <div class="card mt-5" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title"><%= event.title.capitalize %><br/></h5>
+                <h6 class="card-subtitle mb-2 text-muted">Organisateur : <%= event.administrator.first_name %><br/></h6><br/>
+                <h6 class="card-subtitle mb-2 text-muted">Démarrage : <%= event.start_date %><br/></h6><br/>
+                <p class="card-text"> Description : <%= event.description%></p><br/>
+                <p class="card-text"> Prix : <%= event.price%>€</p><br/>
+                <p class="card-text"> Localisation : <%= event.location%></p><br/>
+
+                
+                <%if current_user%>
+
+                <%else%>
+
+                <%end%>
+                </h6>
+                <hr class="divider my-4">
+
+                
+                <a class="btn btn-primary btn-update" href="<%=event_path(event.id)%>" role="button">Voir</a>
+                <% if event.administrator == current_user %>
+                <a class="btn btn-success" href="#" role="button">Editer "à venir"</a>
+                <a class="btn btn-warning" href="<%=event_path(event.id)%>" role="button" data-confirm="Etes-vous sur?" data-method="DELETE" >Supprimer</a>
+                <%end%>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </section>
+

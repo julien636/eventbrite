@@ -1,0 +1,41 @@
+
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-10 align-self-end">
+          <div class="container">
+            <div class="card text-center">
+              <div class="card-header">
+                 Organnisateur : <%=@event.administrator.first_name%>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title"><%=@event.title.capitalize %></h4>
+                <p class="card-text">Description : <%= @event.description %></p>
+                <p class="card-text">Prix : <%= @event.price %>€</p>
+                <p class="card-text"> Durée : <%= @event.duration %> minutes</p>
+                <p class="card-text">Lieu : <%= @event.location %></p>
+                <p class="card-text">Date : <%= @event.start_date %></p>
+                <div class="text-muted">
+                 
+                </div><br/>
+                <%if @event.administrator==current_user %>
+                <a class="btn btn-success" href="#" role="button">Editer "à venir"</a>
+                <a class="btn btn-warning" href="<%=event_path(@event.id)%>" role="button" data-confirm="Etes-vous sur?" data-method="DELETE" >Supprimer</a>
+                <%end%>
+              </div>
+              <div class="card-footer text-muted">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+          <p class="text-white-75 font-weight-light mb-5"></p>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+

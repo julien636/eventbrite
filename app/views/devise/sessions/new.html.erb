@@ -10,6 +10,11 @@
             </div>
             <div class="card-body">
               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <% if resource.errors.any? %>
+              <div class="alert alert-danger" role="alert">
+              <%= render "devise/shared/error_messages", resource: resource %>
+            </div>
+            <%end%>
               <p class="card-text">
               <div class="field">
                         <%= f.label :email %><br />
