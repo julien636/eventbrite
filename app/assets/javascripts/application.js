@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require jquery.flexslider-min
+
 //= require jquery
+//= require jquery.flexslider-min
 //= require jquery_ujs
